@@ -1,5 +1,27 @@
 # Personal-Expense-Tracker
 
+#### Menu Options
+
+1. **Add Expense**: Enter a new expense with amount, date (DD-MM-YYYY), note, and category
+2. **View Expenses**: View all expenses with optional filters (category, date range)
+3. **Update Expense**: Modify an existing expense by ID
+4. **Delete Expense**: Remove an expense by ID
+5. **Summary Reports**: View spending summaries (total, by category, by month)
+6. **Search Expenses**: Search expenses by note content
+7. **Export Data**: Export all expenses to a CSV file
+8. **View Statistics**: Show summary statistics (average, min, max, etc.)
+9. **Help**: Display help information and tips
+10. **Clear All Expenses**: Delete all expenses (with confirmation)
+11. **Exit**: Quit the applicationOptions
+
+1. **Add Expense**: Enter a new expense with amount, date (DD-MM-YYYY), note, and category
+2. **View Expenses**: Display expenses with optional filters
+3. **Update Expense**: Modify an existing expense by ID
+4. **Delete Expense**: Remove an expense by ID
+5. **Summary Reports**: View spending summaries (total, by category, by month)
+6. **Help**: Show detailed help and usage information
+7. **Clear All Expenses**: Delete all expenses (with confirmation)
+8. **Exit**: Quit the application
 A simple, user-friendly Personal Expense Tracker built in Python using standard libraries.
 
 ## Features

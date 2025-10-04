@@ -14,9 +14,14 @@ def main():
         print("3. Update Expense")
         print("4. Delete Expense")
         print("5. Summary Reports")
-        print("6. Exit")
+        print("6. Search Expenses")
+        print("7. Export Data")
+        print("8. View Statistics")
+        print("9. Help")
+        print("10. Clear All Expenses")
+        print("11. Exit")
 
-        choice = input("Choose an option (1-6): ").strip()
+        choice = input("Choose an option (1-11): ").strip()
 
         if choice == '1':
             add_expense_interactive(manager)
@@ -29,6 +34,16 @@ def main():
         elif choice == '5':
             summary_interactive(manager)
         elif choice == '6':
+            search_expenses_interactive(manager)
+        elif choice == '7':
+            export_data_interactive(manager)
+        elif choice == '8':
+            view_statistics_interactive(manager)
+        elif choice == '9':
+            help_interactive()
+        elif choice == '10':
+            clear_all_interactive(manager)
+        elif choice == '11':
             print("Thank you for using Personal Expense Tracker!")
             break
         else:
@@ -163,6 +178,85 @@ def summary_interactive(manager):
                 print(f"{mon}: ₹{amt:.2f}")
     else:
         print("Invalid choice.")
+
+def help_interactive():
+    print("\n--- Help ---")
+    print("Personal Expense Tracker - Manage your expenses easily!")
+    print("\nMenu Options:")
+    print("1. Add Expense: Enter a new expense with amount, date, note, and category.")
+    print("2. View Expenses: Display expenses with optional filters (category, date range).")
+    print("3. Update Expense: Modify an existing expense by ID.")
+    print("4. Delete Expense: Remove an expense by ID.")
+    print("5. Summary Reports: View totals by category, month, or overall.")
+    print("6. Search Expenses: Search expenses by note content.")
+    print("7. Export Data: Export all expenses to a CSV file.")
+    print("8. View Statistics: Show summary statistics (average, min, max, etc.).")
+    print("9. Help: Show this help information.")
+    print("10. Clear All Expenses: Delete all expenses (requires confirmation).")
+    print("11. Exit: Quit the application.")
+    print("\nTips:")
+    print("- Dates must be in DD-MM-YYYY format (e.g., 01-10-2023).")
+    print("- Amounts are in Indian Rupees (₹).")
+    print("- Leave fields empty when prompted to skip optional inputs.")
+    print("- All data is saved automatically to data/expenses.json.")
+
+def clear_all_interactive(manager):
+    print("\n--- Clear All Expenses ---")
+    print("WARNING: This will delete ALL expenses permanently!")
+    confirm = input("Type 'YES' to confirm: ").strip()
+    if confirm == 'YES':
+        manager.expenses = []
+        manager.save_expenses()
+        print("All expenses cleared.")
+    else:
+        print("Operation cancelled.")
+
+def search_expenses_interactive(manager):
+    print("\n--- Search Expenses ---")
+    query = input("Enter search term (searches in notes): ").strip().lower()
+    if not query:
+        print("No search term provided.")
+        return
+    results = [e for e in manager.expenses if query in e['note'].lower()]
+    if not results:
+        print("No expenses found matching the search.")
+    else:
+        print(f"Found {len(results)} expense(s):")
+        print_table(results)
+
+def export_data_interactive(manager):
+    print("\n--- Export Data ---")
+    filename = input("Enter filename for export (e.g., expenses.csv): ").strip()
+    if not filename:
+        filename = "expenses_export.csv"
+    if not filename.endswith('.csv'):
+        filename += '.csv'
+    filepath = f"data/{filename}"
+    try:
+        with open(filepath, 'w') as f:
+            f.write("ID,Amount,Date,Note,Category\n")
+            for exp in manager.expenses:
+                f.write(f"{exp['id']},{exp['amount']},{exp['date']},{exp['note']},{exp['category']}\n")
+        print(f"Data exported to {filepath}")
+    except Exception as e:
+        print(f"Error exporting data: {e}")
+
+def view_statistics_interactive(manager):
+    print("\n--- Statistics ---")
+    if not manager.expenses:
+        print("No expenses to analyze.")
+        return
+    amounts = [e['amount'] for e in manager.expenses]
+    total = sum(amounts)
+    count = len(amounts)
+    avg = total / count
+    max_exp = max(amounts)
+    min_exp = min(amounts)
+    print(f"Total Expenses: {count}")
+    print(f"Total Amount: ₹{total:.2f}")
+    print(f"Average per Expense: ₹{avg:.2f}")
+    print(f"Highest Expense: ₹{max_exp:.2f}")
+    print(f"Lowest Expense: ₹{min_exp:.2f}")
 
 def print_table(expenses):
     if not expenses:
