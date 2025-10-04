@@ -1,5 +1,8 @@
 # Personal Expense Tracker
 
+**Internship Task Submission for Evaao – October 2025**  
+Submitted by: Arun Kumar Korra
+
 A simple, interactive command-line Personal Expense Tracker built in Python. Easily manage your daily expenses with categories, notes, and powerful filtering and reporting features.
 
 ## Features
@@ -17,8 +20,7 @@ A simple, interactive command-line Personal Expense Tracker built in Python. Eas
 
 ## Requirements
 
-- Python 3.6 or higher
-- No external dependencies (uses only standard library modules)
+No setup required — uses Python's standard library only.
 
 ## Installation
 
@@ -63,6 +65,7 @@ Enter category: Food
 Expense added successfully with ID: 1
 ```
 
+
 ### Viewing Expenses
 ```
 --- View Expenses ---
@@ -74,6 +77,7 @@ ID    Amount     Date         Category        Note
 ------------------------------------------------------------
 1     ₹250.50    15-10-2023   Food            Grocery shopping
 ```
+
 
 ### Summary Reports
 ```
