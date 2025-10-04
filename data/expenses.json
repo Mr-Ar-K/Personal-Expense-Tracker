@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "amount": 10.5,
+        "date": "01-10-2023",
+        "note": "Dinner",
+        "category": "Food"
+    },
+    {
+        "id": 2,
+        "amount": 15.0,
+        "date": "01-11-2023",
+        "note": "Movie",
+        "category": "Entertainment"
+    },
+    {
+        "id": 3,
+        "amount": 20.0,
+        "date": "02-10-2023",
+        "note": "Taxi",
+        "category": "Travel"
+    },
+    {
+        "id": 4,
+        "amount": 5.0,
+        "date": "04-10-2023",
+        "note": "Coffee",
+        "category": "Food"
+    },
+    {
+        "id": 5,
+        "amount": 25.0,
+        "date": "05-10-2023",
+        "note": "Bus fare",
+        "category": "Transport"
+    },
+    {
+        "id": 6,
+        "amount": 100.0,
+        "date": "22-04-2025",
+        "note": "Lunch",
+        "category": "Food"
+    }
+]
