@@ -1,8 +1,5 @@
 # Personal Expense Tracker
 
-**Internship Task Submission for Evaao – October 2025**  
-Submitted by: Arun Kumar Korra
-
 A simple, interactive command-line Personal Expense Tracker built in Python. Easily manage your daily expenses with categories, notes, and powerful filtering and reporting features.
 
 ## Features
